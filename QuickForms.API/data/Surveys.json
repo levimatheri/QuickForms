@@ -1,0 +1,2360 @@
+[{
+  "_id": {
+    "$oid": "62ca27bd10e8e99532ea023c"
+  },
+  "content": {
+    "title": "Minimum data reporting form – for suspected and probable cases of COVID-19",
+    "logoPosition": "right",
+    "pages": [
+      {
+        "name": "page1",
+        "elements": [
+          {
+            "type": "image",
+            "name": "first_page_image",
+            "width": "400px",
+            "minWidth": "400px",
+            "maxWidth": "400px",
+            "imageLink": "https://surveyjs.io/Content/Images/examples/covid/01.png",
+            "imageFit": "none",
+            "imageHeight": 726,
+            "imageWidth": 400
+          },
+          {
+            "type": "panel",
+            "name": "first_page_container_panel",
+            "elements": [
+              {
+                "type": "text",
+                "name": "unique_case_id_textbox",
+                "startWithNewLine": false,
+                "title": "Unique Case ID / Cluster Number (if applicable):",
+                "hideNumber": true,
+                "inputType": "number"
+              },
+              {
+                "type": "panel",
+                "name": "current_status_panel",
+                "elements": [
+                  {
+                    "type": "boolean",
+                    "name": "current_status",
+                    "titleLocation": "hidden",
+                    "hideNumber": true,
+                    "labelTrue": "Alive",
+                    "labelFalse": "Dead"
+                  }
+                ],
+                "title": "Current Status",
+                "showNumber": true
+              },
+              {
+                "type": "panel",
+                "name": "data_collector_information",
+                "elements": [
+                  {
+                    "type": "text",
+                    "name": "name_of_data_collector",
+                    "title": "Name of data collector"
+                  },
+                  {
+                    "type": "text",
+                    "name": "data_collector_institution",
+                    "title": "Data collector Institution"
+                  },
+                  {
+                    "type": "text",
+                    "name": "data_collector_telephone_number",
+                    "title": "Data collector telephone number",
+                    "inputType": "tel"
+                  },
+                  {
+                    "type": "text",
+                    "name": "email",
+                    "title": "Email",
+                    "inputType": "email"
+                  },
+                  {
+                    "type": "text",
+                    "name": "form_completion_date",
+                    "title": "Form completion date",
+                    "inputType": "date"
+                  }
+                ],
+                "title": "Data Collector Information",
+                "showNumber": true,
+                "showQuestionNumbers": "off"
+              }
+            ],
+            "startWithNewLine": false
+          }
+        ],
+        "navigationTitle": "Collector",
+        "navigationDescription": "Collector's info"
+      },
+      {
+        "name": "page2",
+        "elements": [
+          {
+            "type": "boolean",
+            "name": "is_the_person_providing_the_information_is_the_patient",
+            "title": "Is the person providing the information is the patient?",
+            "hideNumber": true,
+            "isRequired": true,
+            "labelTrue": "Yes",
+            "labelFalse": "No"
+          },
+          {
+            "type": "panel",
+            "name": "case_identifier_information",
+            "elements": [
+              {
+                "type": "text",
+                "name": "given_names",
+                "title": "Given name(s)"
+              },
+              {
+                "type": "text",
+                "name": "family_name",
+                "startWithNewLine": false,
+                "title": "Family name"
+              },
+              {
+                "type": "radiogroup",
+                "name": "case_identifier_information_sex",
+                "title": "Sex",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Male"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "Female"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Not known"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "panel",
+                "name": "case_identifier_information_patient_date_of_birth_panel",
+                "elements": [
+                  {
+                    "type": "text",
+                    "name": "case_identifier_information_patient_date_of_birth_date",
+                    "visibleIf": "{case_identifier_information_patient_date_of_birth_checkbox} empty",
+                    "titleLocation": "hidden",
+                    "inputType": "date"
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "case_identifier_information_patient_date_of_birth_checkbox",
+                    "startWithNewLine": false,
+                    "titleLocation": "hidden",
+                    "choices": [
+                      "Unknown"
+                    ]
+                  }
+                ],
+                "title": "Date of Birth"
+              },
+              {
+                "type": "text",
+                "name": "case_identifier_information_patient_telephone_mobile_number",
+                "title": "Telephone (mobile) number",
+                "inputType": "tel"
+              },
+              {
+                "type": "panel",
+                "name": "case_identifier_information_patient_age",
+                "elements": [
+                  {
+                    "type": "text",
+                    "name": "case_identifier_information_patient_age_years",
+                    "visibleIf": "{case_identifier_information_patient_age_checkbox} empty",
+                    "title": "Years:",
+                    "inputType": "number"
+                  },
+                  {
+                    "type": "text",
+                    "name": "case_identifier_information_patient_age_months",
+                    "visibleIf": "{case_identifier_information_patient_age_checkbox} empty",
+                    "startWithNewLine": false,
+                    "title": "Months:",
+                    "inputType": "number"
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "case_identifier_information_patient_age_checkbox",
+                    "startWithNewLine": false,
+                    "titleLocation": "hidden",
+                    "choices": [
+                      "Unknown"
+                    ]
+                  }
+                ],
+                "title": "Age (years, months) "
+              },
+              {
+                "type": "text",
+                "name": "case_identifier_information_patient_email",
+                "title": "Email",
+                "inputType": "email"
+              },
+              {
+                "type": "text",
+                "name": "case_identifier_information_patient_address",
+                "startWithNewLine": false,
+                "title": "Address"
+              },
+              {
+                "type": "text",
+                "name": "case_identifier_information_patient_national_social_number",
+                "title": "National social number/ identifier (if applicable)"
+              },
+              {
+                "type": "dropdown",
+                "name": "case_identifier_information_patient_country_of_residence",
+                "title": "Country of residence",
+                "choices": [
+                  "item1",
+                  "item2",
+                  "item3"
+                ],
+                "choicesByUrl": {
+                  "url": "https://surveyjs.io/api/CountriesExample",
+                  "valueName": "name"
+                }
+              },
+              {
+                "type": "radiogroup",
+                "name": "case_identifier_information_patient_case_status",
+                "startWithNewLine": false,
+                "title": "Case status",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Suspected"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "Probable"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Confirmed"
+                  }
+                ],
+                "colCount": 3
+              }
+            ],
+            "visible": false,
+            "visibleIf": "{is_the_person_providing_the_information_is_the_patient} = true",
+            "title": "Case Identifier Information",
+            "showNumber": true,
+            "showQuestionNumbers": "off"
+          },
+          {
+            "type": "panel",
+            "name": "interview_respondent_information_if_the_persons_providing_the_information_is_not_the_patient",
+            "elements": [
+              {
+                "type": "text",
+                "name": "first_name",
+                "title": "First name "
+              },
+              {
+                "type": "text",
+                "name": "surname",
+                "startWithNewLine": false,
+                "title": "Surname"
+              },
+              {
+                "type": "radiogroup",
+                "name": "interview_respondent_information_sex",
+                "title": "Sex",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Male"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "Female"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Not known"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "panel",
+                "name": "interview_respondent_information_patient_date_of_birth_panel",
+                "elements": [
+                  {
+                    "type": "text",
+                    "name": "interview_respondent_information_patient_date_of_birth_date",
+                    "visibleIf": "{interview_respondent_information_patient_date_of_birth_checkbox} empty",
+                    "titleLocation": "hidden",
+                    "inputType": "date"
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "interview_respondent_information_patient_date_of_birth_checkbox",
+                    "startWithNewLine": false,
+                    "titleLocation": "hidden",
+                    "choices": [
+                      "Unknown"
+                    ]
+                  }
+                ],
+                "title": "Date of Birth"
+              },
+              {
+                "type": "text",
+                "name": "relationship_to_patient",
+                "title": "Relationship to patient"
+              },
+              {
+                "type": "text",
+                "name": "respondent_address",
+                "startWithNewLine": false,
+                "title": "Respondent address"
+              },
+              {
+                "type": "text",
+                "name": "interview_respondent_information_patient_telephone_mobile_number",
+                "startWithNewLine": false,
+                "title": "Telephone (mobile) number",
+                "inputType": "tel"
+              }
+            ],
+            "visible": false,
+            "visibleIf": "{is_the_person_providing_the_information_is_the_patient} = false",
+            "title": "Interview respondent information",
+            "showNumber": true,
+            "showQuestionNumbers": "off"
+          }
+        ],
+        "navigationTitle": "Person",
+        "navigationDescription": "Person's info"
+      },
+      {
+        "name": "page3",
+        "elements": [
+          {
+            "type": "image",
+            "name": "third_page_image",
+            "width": "400px",
+            "minWidth": "400px",
+            "maxWidth": "400px",
+            "imageLink": "https://surveyjs.io/Content/Images/examples/covid/03.png",
+            "imageHeight": 690,
+            "imageWidth": 400
+          },
+          {
+            "type": "panel",
+            "name": "patient_symptoms_from_disease_onset",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "date_of_first_symptom_onset",
+                "elements": [
+                  {
+                    "type": "text",
+                    "name": "date_of_first_symptom_onset_date",
+                    "width": "314px",
+                    "minWidth": "314px",
+                    "maxWidth": "314px",
+                    "titleLocation": "hidden",
+                    "enableIf": "{date_of_first_symptom_onset_checkbox} empty",
+                    "inputType": "date"
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "date_of_first_symptom_onset_checkbox",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "No symptoms",
+                        "enableIf": "{date_of_first_symptom_onset_checkbox} <> ['item2']"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "Unknown",
+                        "enableIf": "{date_of_first_symptom_onset_checkbox} <> ['item1']"
+                      }
+                    ],
+                    "colCount": 2
+                  },
+                  {
+                    "type": "radiogroup",
+                    "name": "question1",
+                    "title": "Fever (≥38 °C) or history of fever ",
+                    "titleLocation": "top",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  }
+                ],
+                "title": "Date of first symptom onset"
+              },
+              {
+                "type": "radiogroup",
+                "name": "sore_throat",
+                "title": "Sore throat",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "runny_nose",
+                "title": "Runny nose",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "cough",
+                "title": "Cough",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "shortness_of_Breath",
+                "title": "Shortness of Breath",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "vomiting",
+                "title": "Vomiting",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "nausea",
+                "title": "Nausea",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "diarrhea",
+                "title": "Diarrhea",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              }
+            ],
+            "title": "Patient symptoms (from disease onset)",
+            "startWithNewLine": false,
+            "showNumber": true,
+            "showQuestionNumbers": "off"
+          }
+        ],
+        "navigationTitle": "Symptoms",
+        "navigationDescription": "Patient symptoms"
+      },
+      {
+        "name": "page4",
+        "elements": [
+          {
+            "type": "image",
+            "name": "fouth_page_image",
+            "width": "400px",
+            "minWidth": "400px",
+            "maxWidth": "400px",
+            "imageLink": "https://surveyjs.io/Content/Images/examples/covid/04.png",
+            "imageHeight": 567,
+            "imageWidth": 400
+          },
+          {
+            "type": "panel",
+            "name": "initial_sample_collection",
+            "elements": [
+              {
+                "type": "text",
+                "name": "date_respiratory_sample_collected",
+                "title": "Date respiratory sample collected",
+                "inputType": "date"
+              },
+              {
+                "type": "radiogroup",
+                "name": "what_type_of_respiratory_sample_was_collected",
+                "title": "What type of respiratory sample was collected?",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Nasal swab"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "Throat swab "
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Nasopharyngeal swab"
+                  }
+                ],
+                "hasOther": true,
+                "otherText": "Other, specify",
+                "colCount": 2
+              },
+              {
+                "type": "panel",
+                "name": "has_baseline_serum_been_taken_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "has_baseline_serum_been_taken_radio",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "has_baseline_serum_been_taken_date",
+                    "visible": false,
+                    "visibleIf": "{has_baseline_serum_been_taken_radio} = 'item1'",
+                    "startWithNewLine": false,
+                    "title": "Date baseline serum taken",
+                    "inputType": "date"
+                  }
+                ],
+                "title": "Has baseline serum been taken?"
+              },
+              {
+                "type": "panel",
+                "name": "were_other_samples_collected_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "were_other_samples_collected_radio",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "were_other_samples_collected_textbox",
+                    "visible": false,
+                    "visibleIf": "{were_other_samples_collected_radio} = 'item1'",
+                    "startWithNewLine": false,
+                    "title": "Which samples:"
+                  },
+                  {
+                    "type": "text",
+                    "name": "were_other_samples_collected_date",
+                    "visible": false,
+                    "visibleIf": "{were_other_samples_collected_radio} = 'item1'",
+                    "startWithNewLine": false,
+                    "title": "Date taken",
+                    "inputType": "date"
+                  }
+                ],
+                "title": "Were other samples collected? "
+              }
+            ],
+            "title": "Initial sample collection",
+            "startWithNewLine": false,
+            "showNumber": true,
+            "showQuestionNumbers": "off"
+          }
+        ],
+        "navigationTitle": "Sample",
+        "navigationDescription": "Initial sample"
+      },
+      {
+        "name": "page5",
+        "elements": [
+          {
+            "type": "image",
+            "name": "fifth_image",
+            "width": "400px",
+            "minWidth": "400px",
+            "maxWidth": "400px",
+            "imageLink": "https://surveyjs.io/Content/Images/examples/covid/05.png",
+            "imageHeight": 713,
+            "imageWidth": 400
+          },
+          {
+            "type": "panel",
+            "name": "clinical_course_complications_panel",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "hospitalization_required_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "hospitalization_required_radio",
+                    "width": "49%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "hospitalization_required_hospital",
+                    "width": "313px",
+                    "minWidth": "313px",
+                    "maxWidth": "313px",
+                    "title": "Name of hospital",
+                    "enableIf": "{hospitalization_required_radio} = 'item1'",
+                    "readOnly": true
+                  }
+                ],
+                "title": "Hospitalization required?"
+              },
+              {
+                "type": "radiogroup",
+                "name": "icu_Intensive_Care_Unit_admission_required",
+                "title": "ICU (Intensive Care Unit) admission required",
+                "titleLocation": "top",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "acute_respiratory_distress_syndrome_ards",
+                "title": "Acute Respiratory Distress Syndrome (ARDS)",
+                "titleLocation": "top",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "panel",
+                "name": "pneumonia_by_chest_xray_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "pneumonia_by_chest_xray_radio",
+                    "width": "49%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Not applicable (no X-ray performed)"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "pneumonia_by_chest_xray_date",
+                    "width": "313px",
+                    "minWidth": "313px",
+                    "maxWidth": "313px",
+                    "title": "Date",
+                    "enableIf": "{pneumonia_by_chest_xray_radio} = 'item1'",
+                    "readOnly": true,
+                    "inputType": "date"
+                  }
+                ],
+                "title": "Pneumonia by chest X-ray "
+              },
+              {
+                "type": "panel",
+                "name": "other_severe_or_life_threatening_illness_suggestive_of_an_infection_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "other_severe_or_life_threatening_illness_suggestive_of_an_radio",
+                    "width": "49%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "other_severe_or_life_threatening_illness_suggestive_of_an_specify",
+                    "width": "313px",
+                    "minWidth": "313px",
+                    "maxWidth": "313px",
+                    "title": "Specify:",
+                    "enableIf": "{other_severe_or_life_threatening_illness_suggestive_of_an_radio} = 'item1'",
+                    "readOnly": true
+                  }
+                ],
+                "title": "Other severe or life-threatening illness suggestive of an infection"
+              },
+              {
+                "type": "radiogroup",
+                "name": "mechanical_ventilation_required",
+                "title": "Mechanical ventilation required",
+                "titleLocation": "top",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "extracorporeal_membrane_oxygenation_emo",
+                "title": "Extracorporeal membrane oxygenation (EMO)",
+                "titleLocation": "top",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              }
+            ],
+            "title": "Clinical Course: Complications",
+            "startWithNewLine": false,
+            "showNumber": true,
+            "showQuestionNumbers": "off"
+          }
+        ],
+        "navigationTitle": "Complications",
+        "navigationDescription": "Clinical Course"
+      },
+      {
+        "name": "page6",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "human_exposures_in_the_days_before_illness_onset",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "have_you_travelled_within_the_last_days_domestically_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "have_you_travelled_within_the_last_days_domestically_radio",
+                    "width": "50%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "panel",
+                    "name": "have_you_travelled_within_the_last_days_domestically_date_panel",
+                    "elements": [
+                      {
+                        "type": "text",
+                        "name": "have_you_travelled_within_the_last_days_domestically_date_from",
+                        "title": "from",
+                        "inputType": "date"
+                      },
+                      {
+                        "type": "text",
+                        "name": "have_you_travelled_within_the_last_days_domestically_date_to",
+                        "startWithNewLine": false,
+                        "title": "to",
+                        "inputType": "date"
+                      }
+                    ],
+                    "visible": false,
+                    "visibleIf": "{have_you_travelled_within_the_last_days_domestically_radio} = 'item1'",
+                    "title": "Dates of travel"
+                  },
+                  {
+                    "type": "text",
+                    "name": "have_you_travelled_within_the_last_days_domestically_regions",
+                    "visible": false,
+                    "visibleIf": "{have_you_travelled_within_the_last_days_domestically_radio} = 'item1'",
+                    "title": "Regions:"
+                  },
+                  {
+                    "type": "text",
+                    "name": "have_you_travelled_within_the_last_days_domestically_cities_visited",
+                    "visible": false,
+                    "visibleIf": "{have_you_travelled_within_the_last_days_domestically_radio} = 'item1'",
+                    "startWithNewLine": false,
+                    "title": "Cities visited:"
+                  }
+                ],
+                "title": "Have you travelled within the last 14 days domestically?",
+                "showQuestionNumbers": "off"
+              },
+              {
+                "type": "panel",
+                "name": "have_you_travelled_within_the_last_days_internationall_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "have_you_travelled_within_the_last_days_internationall_radio",
+                    "width": "50%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "panel",
+                    "name": "have_you_travelled_within_the_last_days_internationall_date_panel",
+                    "elements": [
+                      {
+                        "type": "text",
+                        "name": "have_you_travelled_within_the_last_days_internationall_date_from",
+                        "title": "from",
+                        "inputType": "date"
+                      },
+                      {
+                        "type": "text",
+                        "name": "have_you_travelled_within_the_last_days_internationall_date_to",
+                        "startWithNewLine": false,
+                        "title": "to",
+                        "inputType": "date"
+                      }
+                    ],
+                    "visible": false,
+                    "visibleIf": "{have_you_travelled_within_the_last_days_internationall_radio} = 'item1'",
+                    "title": "Dates of travel"
+                  },
+                  {
+                    "type": "text",
+                    "name": "have_you_travelled_within_the_last_days_internationall_countries",
+                    "visible": false,
+                    "visibleIf": "{have_you_travelled_within_the_last_days_internationall_radio} = 'item1'",
+                    "title": "Countries visited:"
+                  },
+                  {
+                    "type": "text",
+                    "name": "have_you_travelled_within_the_last_days_internationall_cities",
+                    "visible": false,
+                    "visibleIf": "{have_you_travelled_within_the_last_days_internationall_radio} = 'item1'",
+                    "startWithNewLine": false,
+                    "title": "Cities visited:"
+                  }
+                ],
+                "title": "Have you travelled within the last 14 days internationally?",
+                "showQuestionNumbers": "off"
+              },
+              {
+                "type": "panel",
+                "name": "in_the_past_days_have_you_had_contact_with_a_anyone_with_suspected_or_confirmed_ncov_infection_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "in_the_past_days_have_you_had_contact_with_a_anyone_with_suspected_or_confirmed_ncov_infection_radio",
+                    "width": "50%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "in_the_past_days_have_you_had_contact_with_a_anyone_with_suspected_or_confirmed_ncov_infection_date",
+                    "startWithNewLine": false,
+                    "title": "Date of last contact",
+                    "enableIf": "{in_the_past_days_have_you_had_contact_with_a_anyone_with_suspected_or_confirmed_ncov_infection_radio} = 'item1'",
+                    "readOnly": true,
+                    "inputType": "date"
+                  }
+                ],
+                "title": "In the past 14 days, have you had contact with a anyone with suspected or confirmed 2019-nCoV infection?",
+                "showQuestionNumbers": "off"
+              },
+              {
+                "type": "panel",
+                "name": "patient_attended_festival_or_mass_gathering_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "patient_attended_festival_or_mass_gathering_radio",
+                    "width": "50%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "patient_attended_festival_or_mass_gathering_specify",
+                    "startWithNewLine": false,
+                    "title": "Specify:",
+                    "enableIf": "{patient_attended_festival_or_mass_gathering_radio} = 'item1'",
+                    "readOnly": true
+                  }
+                ],
+                "title": "Patient attended festival or mass gathering",
+                "showQuestionNumbers": "off"
+              },
+              {
+                "type": "radiogroup",
+                "name": "patient_exposed_to_person_with_similar_illness",
+                "width": "50%",
+                "title": "Patient exposed to person with similar illness",
+                "hideNumber": true,
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "No"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Unknown"
+                  }
+                ],
+                "colCount": 3
+              },
+              {
+                "type": "radiogroup",
+                "name": "location_of_exposure",
+                "width": "50%",
+                "title": "Location of exposure",
+                "hideNumber": true,
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Home"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "Hospital"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Workplace"
+                  },
+                  {
+                    "value": "item4",
+                    "text": "Tour group"
+                  },
+                  {
+                    "value": "item5",
+                    "text": "Unknown"
+                  }
+                ],
+                "hasOther": true,
+                "otherText": "Other, specify:",
+                "colCount": 3
+              },
+              {
+                "type": "panel",
+                "name": "patient_visited_or_was_admitted_to_inpatient_health_facility_panel",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "patient_visited_or_was_admitted_to_inpatient_health_facility_radio",
+                    "width": "50%",
+                    "titleLocation": "hidden",
+                    "choices": [
+                      {
+                        "value": "item1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "item2",
+                        "text": "No"
+                      },
+                      {
+                        "value": "item3",
+                        "text": "Unknown"
+                      }
+                    ],
+                    "colCount": 3
+                  },
+                  {
+                    "type": "text",
+                    "name": "patient_visited_or_was_admitted_to_inpatient_health_facility_specify",
+                    "startWithNewLine": false,
+                    "title": "Specify:",
+                    "enableIf": "{patient_visited_or_was_admitted_to_inpatient_health_facility_radio} = 'item1'",
+                    "readOnly": true
+                  },
+                  {
+                    "type": "panel",
+                    "name": "patient_visited_outpatient_treatment_facility_panel",
+                    "elements": [
+                      {
+                        "type": "radiogroup",
+                        "name": "patient_visited_outpatient_treatment_facility_radio",
+                        "width": "50%",
+                        "titleLocation": "hidden",
+                        "choices": [
+                          {
+                            "value": "item1",
+                            "text": "Yes"
+                          },
+                          {
+                            "value": "item2",
+                            "text": "No"
+                          },
+                          {
+                            "value": "item3",
+                            "text": "Unknown"
+                          }
+                        ],
+                        "colCount": 3
+                      },
+                      {
+                        "type": "text",
+                        "name": "patient_visited_outpatient_treatment_facility_specify",
+                        "startWithNewLine": false,
+                        "title": "Specify:",
+                        "enableIf": "{patient_visited_outpatient_treatment_facility_radio} = 'item1'",
+                        "readOnly": true
+                      }
+                    ],
+                    "title": "Patient visited outpatient treatment facility"
+                  },
+                  {
+                    "type": "panel",
+                    "name": "patient_visited_traditional_healer_panel",
+                    "elements": [
+                      {
+                        "type": "radiogroup",
+                        "name": "patient_visited_traditional_healer_radio",
+                        "width": "50%",
+                        "titleLocation": "hidden",
+                        "choices": [
+                          {
+                            "value": "item1",
+                            "text": "Yes"
+                          },
+                          {
+                            "value": "item2",
+                            "text": "No"
+                          },
+                          {
+                            "value": "item3",
+                            "text": "Unknown"
+                          }
+                        ],
+                        "colCount": 3
+                      },
+                      {
+                        "type": "text",
+                        "name": "patient_visited_traditional_healer_specify",
+                        "startWithNewLine": false,
+                        "title": "Specify:",
+                        "enableIf": "{patient_visited_traditional_healer_radio} = 'item1'",
+                        "readOnly": true
+                      },
+                      {
+                        "type": "panel",
+                        "name": "patient_occupation_specify_location_facility_panel",
+                        "elements": [
+                          {
+                            "type": "checkbox",
+                            "name": "patient_occupation_specify_location_facility_checkbox",
+                            "titleLocation": "hidden",
+                            "choices": [
+                              {
+                                "value": "item1",
+                                "text": "Health care worker"
+                              },
+                              {
+                                "value": "item2",
+                                "text": "Working with animals "
+                              },
+                              {
+                                "value": "item3",
+                                "text": "Health laboratory worker"
+                              },
+                              {
+                                "value": "item4",
+                                "text": "Student"
+                              }
+                            ],
+                            "hasOther": true,
+                            "otherText": "Other, specify:",
+                            "colCount": 3
+                          },
+                          {
+                            "type": "text",
+                            "name": "patient_occupation_specify_location_facility_specify",
+                            "visible": false,
+                            "visibleIf": "{patient_occupation_specify_location_facility_checkbox} notempty",
+                            "title": "For each occupation, please specify location or facility:"
+                          }
+                        ],
+                        "title": "Patient occupation (specify location/facility)",
+                        "showQuestionNumbers": "off"
+                      }
+                    ],
+                    "title": "Patient visited traditional healer"
+                  }
+                ],
+                "title": "Patient visited or was admitted to inpatient health facility",
+                "showQuestionNumbers": "off"
+              }
+            ],
+            "title": "Human exposures in the 14 days before illness onset",
+            "showNumber": true
+          }
+        ],
+        "navigationTitle": "Exposures",
+        "navigationDescription": "Before illness"
+      },
+      {
+        "name": "page7",
+        "elements": [
+          {
+            "type": "image",
+            "name": "seventh_image",
+            "width": "400px",
+            "minWidth": "400px",
+            "maxWidth": "400px",
+            "imageLink": "https://surveyjs.io/Content/Images/examples/covid/07.png",
+            "imageHeight": 441,
+            "imageWidth": 400
+          },
+          {
+            "type": "panel",
+            "name": "status_of_form_completion_panel",
+            "elements": [
+              {
+                "type": "boolean",
+                "name": "status_of_form_completion_boolean",
+                "title": "Form completed",
+                "isRequired": true,
+                "labelTrue": "Yes",
+                "labelFalse": "No or partially"
+              },
+              {
+                "type": "radiogroup",
+                "name": "status_of_form_completion_radio",
+                "visible": false,
+                "visibleIf": "{status_of_form_completion_boolean} = false",
+                "title": "Reason:",
+                "choices": [
+                  {
+                    "value": "item1",
+                    "text": "Missed"
+                  },
+                  {
+                    "value": "item2",
+                    "text": "Not attempted"
+                  },
+                  {
+                    "value": "item3",
+                    "text": "Not performed"
+                  },
+                  {
+                    "value": "item4",
+                    "text": "Refusal"
+                  }
+                ],
+                "hasOther": true,
+                "otherText": "Other, specific:"
+              }
+            ],
+            "title": "Status of form completion",
+            "startWithNewLine": false,
+            "showNumber": true,
+            "showQuestionNumbers": "off"
+          }
+        ],
+        "navigationTitle": "Completion",
+        "navigationDescription": "Status of form"
+      }
+    ],
+    "showProgressBar": "top",
+    "progressBarType": "buttons"
+  },
+  "name": "COVID-19"
+},{
+  "_id": {
+    "$oid": "62ca27ee10e8e99532ea023d"
+  },
+  "content": {
+    "logoPosition": "right",
+    "completedHtml": "<h3>Thank you for your feedback.</h3><h5>Your thoughts and ideas will help us to create a great product!</h5>",
+    "completedHtmlOnCondition": [
+      {
+        "expression": "{nps_score} > 8",
+        "html": "<h3>Thank you for your feedback.</h3><h5>We glad that you love our product. Your ideas and suggestions will help us to make our product even better!</h5>"
+      },
+      {
+        "expression": "{nps_score} < 7",
+        "html": "<h3>Thank you for your feedback.</h3><h5> We are glad that you share with us your ideas.We highly value all suggestions from our customers. We do our best to improve the product and reach your expectation.</h5><br />"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page1",
+        "elements": [
+          {
+            "type": "rating",
+            "name": "nps_score",
+            "title": "On a scale of zero to ten, how likely are you to recommend our product to a friend or colleague?",
+            "isRequired": true,
+            "rateMin": 0,
+            "rateMax": 10,
+            "minRateDescription": "(Most unlikely)",
+            "maxRateDescription": "(Most likely)"
+          },
+          {
+            "type": "checkbox",
+            "name": "promoter_features",
+            "visible": false,
+            "visibleIf": "{nps_score} >= 9",
+            "title": "Which features do you value the most?",
+            "isRequired": true,
+            "validators": [
+              {
+                "type": "answercount",
+                "text": "Please select two features maximum.",
+                "maxCount": 2
+              }
+            ],
+            "choices": [
+              "Performance",
+              "Stability",
+              "User Interface",
+              "Complete Functionality"
+            ],
+            "hasOther": true,
+            "otherText": "Other feature:",
+            "colCount": 2
+          },
+          {
+            "type": "comment",
+            "name": "passive_experience",
+            "visible": false,
+            "visibleIf": "{nps_score} > 6  and {nps_score} < 9",
+            "title": "What do you like about our product?"
+          },
+          {
+            "type": "comment",
+            "name": "disappointed_experience",
+            "visible": false,
+            "visibleIf": "{nps_score} notempty",
+            "title": "What do you miss or find disappointing in your experience with our products?"
+          }
+        ]
+      }
+    ],
+    "showQuestionNumbers": "off"
+  },
+  "name": "Product Feedback"
+},{
+  "_id": {
+    "$oid": "62ca295e24beff869c2fd367"
+  },
+  "content": {
+    "title": "Product/Market Fit Survey Template",
+    "logoPosition": "right",
+    "pages": [
+      {
+        "name": "page1",
+        "elements": [
+          {
+            "type": "radiogroup",
+            "name": "customer_role",
+            "title": "What best describes your role?",
+            "choices": [
+              "Engineering Lead",
+              "Project Manager",
+              "Software Developer",
+              "Designer",
+              "Product Manager",
+              "CEO / Founder",
+              "Customer Support"
+            ],
+            "hasOther": true,
+            "otherText": "Other",
+            "colCount": 3
+          },
+          {
+            "type": "radiogroup",
+            "name": "start_using",
+            "title": "How did you start using the product?",
+            "choices": [
+              {
+                "value": "created",
+                "text": "I created my account"
+              },
+              {
+                "value": "invited",
+                "text": "I was invited to an account"
+              }
+            ]
+          },
+          {
+            "type": "radiogroup",
+            "name": "product_discovering",
+            "title": "How did you first discover the product? ",
+            "choices": [
+              "Friend or colleague",
+              "Search engine",
+              "Facebook",
+              "Twitter",
+              "Blog"
+            ],
+            "hasOther": true,
+            "otherText": "Other",
+            "colCount": 3
+          },
+          {
+            "type": "radiogroup",
+            "name": "paid_customer",
+            "title": "Do you currently pay for the product? ",
+            "isRequired": true,
+            "choices": [
+              "Yes",
+              "No"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "page2",
+        "elements": [
+          {
+            "type": "radiogroup",
+            "name": "product_fit",
+            "title": "How would you feel if you could no longer use the product?",
+            "isRequired": true,
+            "choices": [
+              {
+                "value": "3",
+                "text": "Very disappointed"
+              },
+              {
+                "value": "2",
+                "text": "Somewhat disappointed"
+              },
+              {
+                "value": "1",
+                "text": "Not disappointed"
+              }
+            ]
+          },
+          {
+            "type": "comment",
+            "name": "product_fit_comment",
+            "visibleIf": "{product_fit} notempty",
+            "title": "Please help us understand why you selected the answer above"
+          }
+        ]
+      },
+      {
+        "name": "page3",
+        "elements": [
+          {
+            "type": "radiogroup",
+            "name": "product_alternative",
+            "title": "What would you use as an alternative if [the product] were no\nlonger available?",
+            "choices": [
+              "Alternative 1",
+              "Alternative 2",
+              "Alternative 3",
+              "Alternative 4",
+              "Alternative 5",
+              "Alternative 6"
+            ],
+            "hasOther": true,
+            "otherText": "Other (please name)",
+            "colCount": 3
+          },
+          {
+            "type": "radiogroup",
+            "name": "product_benefit",
+            "title": "What is the primary benefit that you have received from the\nproduct?",
+            "choices": [
+              "Benefit 1",
+              "Benefit 2",
+              "Benefit 3",
+              "Benefit 4",
+              "Benefit 5",
+              "Benefit 6"
+            ],
+            "hasOther": true,
+            "colCount": 3
+          },
+          {
+            "type": "radiogroup",
+            "name": "product_recommend",
+            "title": "Have you recommended the product to anyone?",
+            "choices": [
+              "Yes",
+              "No"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "page4",
+        "elements": [
+          {
+            "type": "rating",
+            "name": "nps_score",
+            "title": "How likely are you to recommend the product to a friend or\ncolleague? ",
+            "isRequired": true,
+            "rateMin": 0,
+            "rateMax": 10,
+            "minRateDescription": "Most unlikely",
+            "maxRateDescription": "Most likely"
+          },
+          {
+            "type": "radiogroup",
+            "name": "favorite_functionality",
+            "title": "What's your favorite functionality / add-on for the product?",
+            "choices": [
+              "Feature 1",
+              "Feature 2",
+              "Feature 3",
+              "Feature 4",
+              "Feature 5",
+              "Feature 6"
+            ],
+            "hasOther": true,
+            "colCount": 3
+          },
+          {
+            "type": "comment",
+            "name": "product_improvement",
+            "title": "How could the product be improved to better meet your\nneeds?"
+          }
+        ]
+      },
+      {
+        "name": "page5",
+        "elements": [
+          {
+            "type": "multipletext",
+            "name": "contact_customer",
+            "title": "Want us to follow-up? Leave your name and email here:",
+            "items": [
+              {
+                "name": "Name"
+              },
+              {
+                "name": "E-mail",
+                "inputType": "email",
+                "validators": [
+                  {
+                    "type": "email"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "name": "Product/Market Fit Survey"
+},{
+  "_id": {
+    "$oid": "62ca299524beff869c2fd368"
+  },
+  "content": {
+    "logoPosition": "right",
+    "pages": [
+      {
+        "name": "page0",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "panel1",
+            "elements": [
+              {
+                "type": "html",
+                "name": "income_intro",
+                "html": "<article class='intro'>    <h1 class='intro__heading intro__heading--income title'>                     Income              </h1>    <div class='intro__body wysiwyg'>       <p>In this section, you will be asked about your current employment and any other way you and your partner currently receive income.</p>       <p>It will be handy to have the following in front of you:</p>       <ul>          <li>            Payslip (for employment details)          </li>          <li>            <p>A current Centrelink Schedule for any account based pension from super, annuities, or other income stream products that you own</p>            <p>              If you don't have a current one you can get these schedules by contacting your income stream provider            </p>          </li>          <li>            Latest statement from any payments (from Centrelink or other authority)          </li>       </ul>         </div> </article>"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "page1",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "panel13",
+            "elements": [
+              {
+                "type": "radiogroup",
+                "name": "maritalstatus_c",
+                "title": " ",
+                "choices": [
+                  "Married",
+                  "In a registered relationship",
+                  "Living with my partner",
+                  "Widowed",
+                  "Single"
+                ]
+              }
+            ],
+            "title": "What is your marital status?"
+          }
+        ]
+      },
+      {
+        "name": "page2",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "panel5",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "panel2",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "member_receives_income_from_employment",
+                    "title": " ",
+                    "isRequired": true,
+                    "choices": [
+                      {
+                        "value": "1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "0",
+                        "text": "No"
+                      }
+                    ],
+                    "colCount": 2
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "member_type_of_employment",
+                    "visible": false,
+                    "visibleIf": "{member_receives_income_from_employment} =1",
+                    "title": "  ",
+                    "isRequired": true,
+                    "choices": [
+                      "Self employment",
+                      "All other types of employment"
+                    ]
+                  }
+                ],
+                "title": "You"
+              },
+              {
+                "type": "panel",
+                "name": "panel1",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "partner_receives_income_from_employment",
+                    "title": " ",
+                    "isRequired": true,
+                    "choices": [
+                      {
+                        "value": "1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "0",
+                        "text": "No"
+                      }
+                    ],
+                    "colCount": 2
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "partner_type_of_employment",
+                    "visible": false,
+                    "visibleIf": "{partner_receives_income_from_employment} =1",
+                    "title": " ",
+                    "isRequired": true,
+                    "choices": [
+                      "Self employment",
+                      "All other types of employment"
+                    ]
+                  }
+                ],
+                "visible": false,
+                "visibleIf": "{maritalstatus_c} = 'Married' or {maritalstatus_c} = 'In a registered relationship' or {maritalstatus_c} = 'Living with my partner'",
+                "title": "Your Partner",
+                "startWithNewLine": false
+              }
+            ],
+            "title": "Do you and/or your partner currently receive income from employment?"
+          }
+        ]
+      },
+      {
+        "name": "page3.1",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "panel6",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "panel2",
+                "elements": [
+                  {
+                    "type": "paneldynamic",
+                    "name": "member_arrray_employer_names",
+                    "title": "Please enter all your employers",
+                    "valueName": "member_arrray_employer",
+                    "templateElements": [
+                      {
+                        "type": "text",
+                        "name": "member_employer_name",
+                        "title": "Name of employer",
+                        "valueName": "name"
+                      }
+                    ],
+                    "panelCount": 1,
+                    "minPanelCount": 1,
+                    "panelAddText": "Add another employer"
+                  }
+                ],
+                "visible": false,
+                "visibleIf": "{member_type_of_employment} contains 'All other types of employment'",
+                "title": "You"
+              },
+              {
+                "type": "panel",
+                "name": "panel8",
+                "elements": [
+                  {
+                    "type": "paneldynamic",
+                    "name": "partner_arrray_employer_names",
+                    "title": "Please enter all your partner employers",
+                    "valueName": "partner_arrray_employer",
+                    "templateElements": [
+                      {
+                        "type": "text",
+                        "name": "partner_employer_name",
+                        "title": "Name of employer",
+                        "valueName": "name"
+                      }
+                    ],
+                    "panelCount": 1,
+                    "minPanelCount": 1,
+                    "panelAddText": "Add another employer"
+                  }
+                ],
+                "visible": false,
+                "visibleIf": "{partner_type_of_employment} contains 'All other types of employment'",
+                "title": "Your Partner",
+                "startWithNewLine": false
+              }
+            ],
+            "title": "Who are you employed by?"
+          }
+        ],
+        "visible": false,
+        "visibleIf": "{member_type_of_employment} contains 'All other types of employment' or {partner_type_of_employment} contains 'All other types of employment'"
+      },
+      {
+        "name": "page3.2",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "panel16",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "panel17",
+                "elements": [
+                  {
+                    "type": "paneldynamic",
+                    "name": "member_arrray_employer_info",
+                    "title": "Your employers",
+                    "valueName": "member_arrray_employer",
+                    "templateElements": [
+                      {
+                        "type": "panel",
+                        "name": "panel_member_employer_address",
+                        "elements": [
+                          {
+                            "type": "text",
+                            "name": "member_employer_address",
+                            "title": "Address",
+                            "valueName": "address"
+                          },
+                          {
+                            "type": "text",
+                            "name": "member_employer_phone",
+                            "title": "Phone number:",
+                            "valueName": "phone"
+                          },
+                          {
+                            "type": "text",
+                            "name": "member_employer_abn",
+                            "title": "ABN",
+                            "valueName": "abn"
+                          }
+                        ],
+                        "title": "Address"
+                      },
+                      {
+                        "type": "panel",
+                        "name": "panel_member_employer_role",
+                        "elements": [
+                          {
+                            "type": "radiogroup",
+                            "name": "member_employer_role",
+                            "title": "Your role",
+                            "valueName": "role",
+                            "choices": [
+                              "Full time",
+                              "Part time",
+                              "Casual",
+                              "Seasonal"
+                            ]
+                          }
+                        ],
+                        "title": "What is your role?"
+                      },
+                      {
+                        "type": "panel",
+                        "name": "panel_member_employer_hours_work",
+                        "elements": [
+                          {
+                            "type": "text",
+                            "name": "member_employer_hours_worked",
+                            "title": "Hours:",
+                            "valueName": "hours_worked",
+                            "inputType": "number"
+                          },
+                          {
+                            "type": "dropdown",
+                            "name": "member_employer_hours_worked_frequency",
+                            "startWithNewLine": false,
+                            "title": "Worked Frequency:",
+                            "valueName": "hours_worked_frequency",
+                            "defaultValue": "Year",
+                            "choices": [
+                              "Day",
+                              "Week",
+                              "Fortnight",
+                              "Month",
+                              "Year"
+                            ]
+                          }
+                        ],
+                        "title": "What hours do you work?"
+                      },
+                      {
+                        "type": "panel",
+                        "name": "panel_member_employer_income",
+                        "elements": [
+                          {
+                            "type": "text",
+                            "name": "member_employer_income",
+                            "title": "Income:",
+                            "valueName": "income",
+                            "inputType": "number"
+                          },
+                          {
+                            "type": "dropdown",
+                            "name": "member_employer_income_frequency",
+                            "startWithNewLine": false,
+                            "title": "Income Frequency",
+                            "valueName": "income_frequency",
+                            "defaultValue": "Year",
+                            "choices": [
+                              "Day",
+                              "Week",
+                              "Fortnight",
+                              "Month",
+                              "Year"
+                            ]
+                          }
+                        ],
+                        "title": "What income do you receive?"
+                      }
+                    ],
+                    "templateTitle": "Employer name: {panel.name}",
+                    "allowAddPanel": false,
+                    "allowRemovePanel": false,
+                    "panelCount": 1,
+                    "renderMode": "progressTop"
+                  }
+                ],
+                "visibleIf": "{member_type_of_employment} contains 'All other types of employment'",
+                "title": "You"
+              },
+              {
+                "type": "panel",
+                "name": "panel18",
+                "elements": [
+                  {
+                    "type": "paneldynamic",
+                    "name": "partner_arrray_employer_info",
+                    "title": "Your partner employers",
+                    "valueName": "partner_arrray_employer",
+                    "templateElements": [
+                      {
+                        "type": "panel",
+                        "name": "panel_partner_employer_address",
+                        "elements": [
+                          {
+                            "type": "text",
+                            "name": "partner_employer_address",
+                            "title": "Address:",
+                            "valueName": "address"
+                          },
+                          {
+                            "type": "text",
+                            "name": "partner_employer_phone",
+                            "title": "Phone number",
+                            "valueName": "phone"
+                          },
+                          {
+                            "type": "text",
+                            "name": "partner_employer_abn",
+                            "title": "ABN",
+                            "valueName": "abn"
+                          }
+                        ],
+                        "title": "Address"
+                      },
+                      {
+                        "type": "panel",
+                        "name": "panel_partner_employer_role",
+                        "elements": [
+                          {
+                            "type": "radiogroup",
+                            "name": "partner_employer_role",
+                            "title": "Your role",
+                            "valueName": "role",
+                            "choices": [
+                              "Full time",
+                              "Part time",
+                              "Casual",
+                              "Seasonal"
+                            ]
+                          }
+                        ],
+                        "title": "What is your role?"
+                      },
+                      {
+                        "type": "panel",
+                        "name": "panel_partner_employer_hours_work",
+                        "elements": [
+                          {
+                            "type": "text",
+                            "name": "partner_employer_hours_worked",
+                            "title": "Hours",
+                            "valueName": "hours_worked",
+                            "inputType": "number"
+                          },
+                          {
+                            "type": "dropdown",
+                            "name": "partner_employer_hours_worked_frequency",
+                            "startWithNewLine": false,
+                            "title": "Worked Frequency:",
+                            "valueName": "hours_worked_frequency",
+                            "defaultValue": "Year",
+                            "choices": [
+                              "Day",
+                              "Week",
+                              "Fortnight",
+                              "Month",
+                              "Year"
+                            ]
+                          }
+                        ],
+                        "title": "What hours do you work?"
+                      },
+                      {
+                        "type": "panel",
+                        "name": "panel_partner_employer_income",
+                        "elements": [
+                          {
+                            "type": "text",
+                            "name": "partner_employer_income",
+                            "title": "Income:",
+                            "valueName": "income",
+                            "inputType": "number"
+                          },
+                          {
+                            "type": "dropdown",
+                            "name": "partner_employer_income_frequency",
+                            "startWithNewLine": false,
+                            "title": "Income frequency:",
+                            "valueName": "income_frequency",
+                            "defaultValue": "Year",
+                            "choices": [
+                              "Day",
+                              "Week",
+                              "Fortnight",
+                              "Month",
+                              "Year"
+                            ]
+                          }
+                        ],
+                        "title": "What income do you receive?"
+                      }
+                    ],
+                    "templateTitle": "Employer name: {panel.name}",
+                    "allowAddPanel": false,
+                    "allowRemovePanel": false,
+                    "panelCount": 1,
+                    "renderMode": "progressTop"
+                  }
+                ],
+                "visibleIf": "{partner_type_of_employment} contains 'All other types of employment'",
+                "title": "You partner",
+                "startWithNewLine": false
+              }
+            ],
+            "title": "Tells us about your employer(s)"
+          }
+        ],
+        "visibleIf": "{member_type_of_employment} contains 'All other types of employment' or {partner_type_of_employment} contains 'All other types of employment'"
+      },
+      {
+        "name": "page4",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "panel9",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "panel2",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "member_receive_fringe_benefits",
+                    "title": " ",
+                    "isRequired": true,
+                    "choices": [
+                      {
+                        "value": "1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "0",
+                        "text": "No"
+                      }
+                    ],
+                    "colCount": 2
+                  },
+                  {
+                    "type": "panel",
+                    "name": "panel11",
+                    "elements": [
+                      {
+                        "type": "text",
+                        "name": "member_fringe_benefits_type"
+                      },
+                      {
+                        "type": "text",
+                        "name": "member_fringe_benefits_value"
+                      },
+                      {
+                        "type": "radiogroup",
+                        "name": "member_fringe_benefits_grossing",
+                        "choices": [
+                          "Grossed up",
+                          "Not grossed up"
+                        ]
+                      }
+                    ],
+                    "visible": false,
+                    "visibleIf": "{member_receive_fringe_benefits} = 1"
+                  }
+                ],
+                "visible": false,
+                "visibleIf": "{member_type_of_employment} contains 'All other types of employment'",
+                "title": "You"
+              },
+              {
+                "type": "panel",
+                "name": "panel1",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "partner_receive_fringe_benefits",
+                    "title": " ",
+                    "isRequired": true,
+                    "choices": [
+                      {
+                        "value": "1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "0",
+                        "text": "No"
+                      }
+                    ],
+                    "colCount": 2
+                  },
+                  {
+                    "type": "panel",
+                    "name": "panel12",
+                    "elements": [
+                      {
+                        "type": "text",
+                        "name": "partner_fringe_benefits_type"
+                      },
+                      {
+                        "type": "text",
+                        "name": "partner_fringe_benefits_value"
+                      },
+                      {
+                        "type": "radiogroup",
+                        "name": "partner_fringe_benefits_grossing",
+                        "choices": [
+                          "Grossed up",
+                          "Not grossed up"
+                        ]
+                      }
+                    ],
+                    "visible": false,
+                    "visibleIf": "{partner_receive_fringe_benefits} = 1"
+                  }
+                ],
+                "visible": false,
+                "visibleIf": "{partner_type_of_employment} contains 'All other types of employment'",
+                "title": "Your Partner",
+                "startWithNewLine": false
+              }
+            ],
+            "title": "Do any of your employers provide you with fringe benefits?"
+          }
+        ],
+        "visible": false,
+        "visibleIf": "{member_type_of_employment} contains 'All other types of employment' or {partner_type_of_employment} contains 'All other types of employment'"
+      },
+      {
+        "name": "page5",
+        "elements": [
+          {
+            "type": "panel",
+            "name": "panel10",
+            "elements": [
+              {
+                "type": "panel",
+                "name": "panel2",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "member_seasonal_intermittent_or_contract_work",
+                    "title": " ",
+                    "isRequired": true,
+                    "choices": [
+                      {
+                        "value": "1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "0",
+                        "text": "No"
+                      }
+                    ],
+                    "colCount": 2
+                  }
+                ],
+                "visible": false,
+                "visibleIf": "{member_receives_income_from_employment} = 1",
+                "title": "You"
+              },
+              {
+                "type": "panel",
+                "name": "panel1",
+                "elements": [
+                  {
+                    "type": "radiogroup",
+                    "name": "partner_seasonal_intermittent_or_contract_work",
+                    "title": " ",
+                    "isRequired": true,
+                    "choices": [
+                      {
+                        "value": "1",
+                        "text": "Yes"
+                      },
+                      {
+                        "value": "0",
+                        "text": "No"
+                      }
+                    ],
+                    "colCount": 2
+                  }
+                ],
+                "visible": false,
+                "visibleIf": "{partner_receives_income_from_employment} =1 ",
+                "title": "Your Partner",
+                "startWithNewLine": false
+              }
+            ],
+            "title": "In the last 6 months, have you done any seasonal, intermittent or contract work?"
+          }
+        ],
+        "visible": false,
+        "visibleIf": "{member_receives_income_from_employment} = 1 or {partner_receives_income_from_employment} =1 "
+      }
+    ],
+    "showQuestionNumbers": "off",
+    "storeOthersAsComment": false,
+    "pagePrevText": "Previous",
+    "pageNextText": "Continue",
+    "completeText": "Finish",
+    "requiredText": ""
+  },
+  "name": "Income Survey"
+}]
