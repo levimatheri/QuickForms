@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using QuickForms.API.Models;
-using QuickForms.API.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using QuickForms.API.RequestHandlers;
 
 namespace QuickForms.API.Controllers
 {
@@ -13,20 +9,23 @@ namespace QuickForms.API.Controllers
     [Route("api/[controller]")]
     public class SurveyController : ControllerBase
     {
-        private readonly SurveyService _surveyService;
+        private readonly IMediator _mediator;
 
-        public SurveyController(SurveyService surveyService)
+        public SurveyController(IMediator mediator)
         {
-            _surveyService = surveyService;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<List<Survey>> GetSurveysAsync() => await _surveyService.GetAsync();
+        public async Task<List<Survey>> GetSurveysAsync()
+        {
+            return await _mediator.Send(new GetAllSurveysRequest());
+        }
 
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<Survey>> GetSurveyAsync(string id)
         {
-            var survey = await _surveyService.GetAsync(id);
+            var survey = await _mediator.Send(new GetSurveyRequest(id));
 
             if (survey is null)
             {

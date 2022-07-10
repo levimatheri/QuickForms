@@ -1,5 +1,5 @@
-using QuickForms.API.Models;
-using QuickForms.API.Services;
+using MediatR;
+using QuickForms.API.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +13,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<DatabaseSettings>(
     builder.Configuration.GetSection("QuickFormsDatabase"));
 
-builder.Services.AddSingleton<SurveyService>();
+builder.Services.AddMediatR(typeof(Program));
+
+//builder.Services.AddSingleton<SurveyService>();
+builder.Services.AddSingleton<IMongoClientBuilder, MongoClientBuilder>();
 
 var app = builder.Build();
 

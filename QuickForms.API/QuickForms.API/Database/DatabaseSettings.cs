@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuickForms.API.Models
+namespace QuickForms.API.Database
 {
     public class DatabaseSettings
     {
