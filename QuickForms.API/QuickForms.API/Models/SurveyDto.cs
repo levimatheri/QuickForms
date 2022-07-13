@@ -1,11 +1,12 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace QuickForms.API.Models;
-
-public class Survey
+public class SurveyDto
 {
     [BsonId]
     [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
@@ -15,5 +16,5 @@ public class Survey
     public string Name { get; set; } = null!;
 
     [BsonElement("content")]
-    public BsonDocument? Content { get; set; }
+    public dynamic? Content { get; set; }
 }

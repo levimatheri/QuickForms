@@ -1,5 +1,5 @@
-using MediatR;
 using QuickForms.API.Database;
+using QuickForms.API.MappingProfiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +14,7 @@ builder.Services.Configure<DatabaseSettings>(
     builder.Configuration.GetSection("QuickFormsDatabase"));
 
 builder.Services.AddMediatR(typeof(Program));
-
+builder.Services.AddAutoMapper(typeof(SurveyProfile));
 //builder.Services.AddSingleton<SurveyService>();
 builder.Services.AddSingleton<IMongoClientBuilder, MongoClientBuilder>();
 
