@@ -2,11 +2,6 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using QuickForms.API.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuickForms.API.MappingProfiles;
 public class SurveyProfile : Profile

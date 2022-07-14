@@ -15,7 +15,6 @@ builder.Services.Configure<DatabaseSettings>(
 
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddAutoMapper(typeof(SurveyProfile));
-//builder.Services.AddSingleton<SurveyService>();
 builder.Services.AddSingleton<IMongoClientBuilder, MongoClientBuilder>();
 
 var app = builder.Build();

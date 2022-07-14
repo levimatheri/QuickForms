@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using QuickForms.API.Models;
 using QuickForms.API.RequestHandlers;
 
@@ -46,7 +42,7 @@ public class SurveyController : ControllerBase
     }
 
     [HttpPut("{id:length(24)}")]
-    public async Task<IActionResult> Update(string id, UpdateSurveyDto updatedSurvey)
+    public async Task<IActionResult> UpdateSurvey(string id, UpdateSurveyDto updatedSurvey)
     {
         var survey = await _mediator.Send(new GetSurveyRequest(id));
 
@@ -56,8 +52,24 @@ public class SurveyController : ControllerBase
         }
 
         updatedSurvey.Id = survey.Id!;
+        updatedSurvey.Name = survey.Name!;
 
         await _mediator.Send(new UpdateSurveyRequest(id, updatedSurvey));
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id:length(24)}")]
+    public async Task<IActionResult> DeleteSurvey(string id)
+    {
+        var survey = await _mediator.Send(new GetSurveyRequest(id));
+
+        if (survey is null)
+        {
+            return NotFound();
+        }
+
+        await _mediator.Send(new DeleteSurveyRequest(id));
 
         return NoContent();
     }
