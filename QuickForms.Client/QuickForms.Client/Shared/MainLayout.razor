@@ -1,21 +1,22 @@
 ﻿@inherits LayoutComponentBase
-@using MudBlazor
-<PageTitle>QuickForms.Client</PageTitle>
-<MudThemeProvider/>
-<MudDialogProvider/>
-<MudSnackbarProvider/>
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
+<MudLayout>
+	<AppBar OnSidebarToggled="ToggleSidebar"  />
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+	<NavMenu SideBarOpen="_sidebarOpen" />
+
+	<MudMainContent Class="mudblazor-main-content d-flex flex-column">
+		<MudContainer Class="mt-6">
+			@Body
+		</MudContainer>
+	</MudMainContent>
+</MudLayout>
+
+<MudThemeProvider Theme="_currentTheme" />
+
+@code {
+	private MudTheme _currentTheme = new MudTheme();
+	private bool _sidebarOpen = false;
+
+	private void ToggleSidebar() => _sidebarOpen = !_sidebarOpen;
+}

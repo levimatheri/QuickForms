@@ -1,11 +1,11 @@
-﻿@page "/activeSurveys"
+﻿@page "/"
 
-@using MudBlazor
+<MudText Typo="Typo.h4">My Surveys</MudText>
 <MudTable Items="@Surveys" Hover="true" Breakpoint="Breakpoint.Sm" RightAlignSmall="true">
     <RowTemplate>
         <MudTd>@context.Name</MudTd>
         <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary">Run</MudButton></MudTd>
-        <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary">Edit</MudButton></MudTd>
+        <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="@(() => EditSurvey(@context.Id))">Edit</MudButton></MudTd>
         <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary">Results</MudButton></MudTd>
     </RowTemplate>
 </MudTable>
