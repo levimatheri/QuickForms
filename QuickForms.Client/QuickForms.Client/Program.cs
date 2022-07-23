@@ -1,4 +1,6 @@
+using Microsoft.Net.Http.Headers;
 using MudBlazor.Services;
+using QuickForms.Client;
 using QuickForms.Client.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +10,11 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddMudServices();
 
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient(Constants.QuickFormsApi.Name, httpClient =>
+{
+    httpClient.BaseAddress = new Uri("http://localhost:5122");
+    httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+});
 builder.Services.AddSingleton<ISurveyRepository, SurveyRepository>();
 
 var app = builder.Build();

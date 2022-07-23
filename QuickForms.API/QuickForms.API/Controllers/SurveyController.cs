@@ -6,23 +6,23 @@ namespace QuickForms.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class SurveyController : ControllerBase
+public class SurveysController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public SurveyController(IMediator mediator)
+    public SurveysController(IMediator mediator)
     {
         _mediator = mediator;
     }
 
     [HttpGet]
-    public async Task<List<Survey>> GetSurveysAsync()
+    public async Task<List<SurveyDto>> GetSurveysAsync()
     {
         return await _mediator.Send(new GetAllSurveysRequest());
     }
 
     [HttpGet("{id:length(24)}")]
-    public async Task<ActionResult<Survey>> GetSurveyAsync(string id)
+    public async Task<ActionResult<SurveyDto>> GetSurveyAsync(string id)
     {
         var survey = await _mediator.Send(new GetSurveyRequest(id));
 
