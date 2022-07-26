@@ -14,6 +14,7 @@ public class SurveyRepository : ISurveyRepository
         _logger = logger;
     }
 
+    
     public async Task<List<Survey>> GetSurveys()
     {
         var httpClient = _httpClientFactory.CreateClient(Constants.QuickFormsApi.Name);
@@ -30,6 +31,26 @@ public class SurveyRepository : ISurveyRepository
         catch (HttpRequestException ex)
         {
             _logger.LogError(ex, "Failed to retrieve surveys from API");
+            throw;
+        }
+    }
+
+    public async Task<Survey> GetSurvey(string id)
+    {
+        var httpClient = _httpClientFactory.CreateClient(Constants.QuickFormsApi.Name);
+
+        try
+        {
+            var httpResponseMessage = await httpClient.GetAsync($"/api/surveys/{id}");
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+
+            var contentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<Survey>(contentString)!;
+        }
+        catch (HttpRequestException ex)
+        {
+            _logger.LogError(ex, "Failed to retrieve survey with {id} from API", id);
             throw;
         }
     }
