@@ -11,5 +11,5 @@ public class SurveyDto
     public string Name { get; set; } = null!;
 
     [BsonElement("content")]
-    public dynamic? Content { get; set; }
+    public string? Content { get; set; }
 }

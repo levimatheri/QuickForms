@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MongoDB.Bson;
+using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using QuickForms.API.Models;
 
@@ -11,7 +12,8 @@ public class SurveyProfile : Profile
         CreateMap<Survey, SurveyDto>()
             .ForMember(dst => dst.Content, opt =>
             {
-                opt.MapFrom(src => BsonSerializer.Deserialize<dynamic>(src.Content, default));
+                //opt.MapFrom(src => BsonSerializer.Deserialize<string>(src.Content, default));
+                opt.MapFrom(src => src.Content.ToJson(new JsonWriterSettings { OutputMode = JsonOutputMode.CanonicalExtendedJson }, default, default, default));
             });
 
         CreateMap<NewSurveyDto, Survey>()

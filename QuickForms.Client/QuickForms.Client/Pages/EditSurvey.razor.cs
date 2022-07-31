@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using MudBlazor;
 using Newtonsoft.Json;
 using QuickForms.Client.Models;
 using QuickForms.Client.Repositories;
@@ -14,18 +15,26 @@ public partial class EditSurvey
     [Inject]
     public ISurveyRepository SurveyRepository { get; set; }
 
+    [Inject]
+    public ILogger<EditSurvey> Logger { get; set; }
+
+    [Inject]
+    public ISnackbar Snackbar { get; set; } 
+
     [Parameter]
     public string Id { get; set; }
 
     public bool IsSurveyJsRendered { get; set; } = false;
+
+    private DotNetObjectReference<EditSurvey>? _dotNetObjectReference;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             IsSurveyJsRendered = false;
-            using var dotnetObjRef = DotNetObjectReference.Create(this);
-            await JSRuntime.InvokeVoidAsync("setupSurveyJS", dotnetObjRef);
+            _dotNetObjectReference = DotNetObjectReference.Create(this);
+            await JSRuntime.InvokeVoidAsync("setupSurveyJS", _dotNetObjectReference);
             IsSurveyJsRendered = true;
         }
     }
@@ -35,5 +44,21 @@ public partial class EditSurvey
     {
         var survey = await SurveyRepository.GetSurvey(Id);
         return JsonConvert.SerializeObject(survey);
+    }
+
+    [JSInvokable]
+    public async Task UpdateCurrentSurvey(Survey survey)
+    {
+        try
+        {
+            await SurveyRepository.UpdateSurvey(survey);
+            Snackbar.Add("Successfully saved changes!", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error updating survey");
+            Snackbar.Add("Error occurred while saving changes", Severity.Error);
+            throw;
+        }
     }
 }

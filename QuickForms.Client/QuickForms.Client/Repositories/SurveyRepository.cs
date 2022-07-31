@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using QuickForms.Client.Models;
+using System.Text;
 
 namespace QuickForms.Client.Repositories;
 
@@ -51,6 +52,25 @@ public class SurveyRepository : ISurveyRepository
         catch (HttpRequestException ex)
         {
             _logger.LogError(ex, "Failed to retrieve survey with {id} from API", id);
+            throw;
+        }
+    }
+
+    public async Task UpdateSurvey(Survey survey)
+    {
+        var httpClient = _httpClientFactory.CreateClient(Constants.QuickFormsApi.Name);
+
+        try
+        {
+            var surveyString = JsonConvert.SerializeObject(survey);
+            var httpResponseMessage = await httpClient.PutAsync(
+                    $"/api/surveys/{survey.Id}", new StringContent(surveyString, Encoding.UTF8, "application/json"));
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+        }
+        catch (HttpRequestException ex)
+        {
+            _logger.LogError(ex, "Failed to update survey {survey}", survey);
             throw;
         }
     }

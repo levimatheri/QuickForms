@@ -5,18 +5,24 @@
 
 	<NavMenu SideBarOpen="_sidebarOpen" />
 
-	<MudMainContent Class="mudblazor-main-content d-flex flex-column">
-		<MudContainer Class="mt-6">
-			@Body
+	<MudMainContent>
+		<MudContainer MaxWidth="MaxWidth.False">
+            @Body
 		</MudContainer>
 	</MudMainContent>
 </MudLayout>
 
+<MudSnackbarProvider/>
 <MudThemeProvider Theme="_currentTheme" />
 
 @code {
-	private MudTheme _currentTheme = new MudTheme();
-	private bool _sidebarOpen = false;
+    private MudTheme _currentTheme = new MudTheme();
+    private bool _sidebarOpen = false;
 
-	private void ToggleSidebar() => _sidebarOpen = !_sidebarOpen;
+    private void ToggleSidebar() => _sidebarOpen = !_sidebarOpen;
+
+    protected override Task OnInitializedAsync()
+    {
+        return Task.CompletedTask;
+    }
 }

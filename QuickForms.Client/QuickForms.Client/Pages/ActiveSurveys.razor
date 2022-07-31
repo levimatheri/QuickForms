@@ -1,7 +1,8 @@
 ﻿@page "/"
 
-<MudText Typo="Typo.h4">My Surveys</MudText>
-<MudTable Items="@Surveys" Hover="true" Breakpoint="Breakpoint.Sm" RightAlignSmall="true">
+<PageTitle>My Surveys</PageTitle>
+<MudText Typo="Typo.h3" GutterBottom="true">My Surveys</MudText>
+<MudTable Items="@Surveys" Hover="true" RightAlignSmall="true">
     <RowTemplate>
         <MudTd>@context.Name</MudTd>
         <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary">Run</MudButton></MudTd>

@@ -20,6 +20,6 @@ public partial class ActiveSurveys
 
     private void EditSurvey(string id)
     {
-        NavigationManager.NavigateTo($"editSurvey/{id}");
+        NavigationManager.NavigateTo($"survey/{id}/edit");
     }
 }
