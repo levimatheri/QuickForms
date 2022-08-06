@@ -8,4 +8,6 @@ public class DatabaseSettings
 
     public string SurveyCollectionName { get; set; } = null!;
 
+    public string SurveyResultsCollectionName { get; set; } = null!;
+
 }
