@@ -5,7 +5,7 @@
 <MudTable Items="@Surveys" Hover="true" RightAlignSmall="true">
     <RowTemplate>
         <MudTd>@context.Name</MudTd>
-        <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary">Run</MudButton></MudTd>
+        <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="@(() => RunSurvey(@context.Id))">Run</MudButton></MudTd>
         <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="@(() => EditSurvey(@context.Id))">Edit</MudButton></MudTd>
         <MudTd><MudButton Variant="Variant.Text" Color="Color.Primary">Results</MudButton></MudTd>
     </RowTemplate>

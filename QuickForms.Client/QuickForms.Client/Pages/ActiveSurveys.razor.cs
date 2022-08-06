@@ -22,4 +22,9 @@ public partial class ActiveSurveys
     {
         NavigationManager.NavigateTo($"survey/{id}/edit");
     }
+
+    private void RunSurvey(string id)
+    {
+        NavigationManager.NavigateTo($"survey/{id}/run");
+    }
 }

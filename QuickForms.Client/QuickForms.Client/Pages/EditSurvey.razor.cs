@@ -40,10 +40,9 @@ public partial class EditSurvey
     }
 
     [JSInvokable]
-    public async Task<string> GetCurrentSurvey()
+    public async Task<Survey> GetCurrentSurvey()
     {
-        var survey = await SurveyRepository.GetSurvey(Id);
-        return JsonConvert.SerializeObject(survey);
+        return await SurveyRepository.GetSurvey(Id);
     }
 
     [JSInvokable]
