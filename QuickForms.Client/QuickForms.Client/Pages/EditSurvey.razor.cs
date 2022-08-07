@@ -42,7 +42,22 @@ public partial class EditSurvey
     [JSInvokable]
     public async Task<Survey> GetCurrentSurvey()
     {
-        return await SurveyRepository.GetSurvey(Id);
+        try
+        {
+            return await SurveyRepository.GetSurvey(Id);
+        }
+        catch (HttpRequestException httpEx) when (httpEx.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            Logger.LogError(httpEx, "Survey not found");
+            Snackbar.Add("Survey not found", Severity.Error);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error loading survey");
+            Snackbar.Add("Error occurred while loading survey", Severity.Error);
+            throw;
+        }
     }
 
     [JSInvokable]

@@ -74,4 +74,23 @@ public class SurveyRepository : ISurveyRepository
             throw;
         }
     }
+
+    public async Task SaveSurveyResults(SurveyResults surveyResults)
+    {
+        var httpClient = _httpClientFactory.CreateClient(Constants.QuickFormsApi.Name);
+
+        try
+        {
+            var surveyResultString = JsonConvert.SerializeObject(surveyResults);
+            var httpResponseMessage = await httpClient.PostAsync(
+                    $"/api/surveyResults/{surveyResults.SurveyId}", new StringContent(surveyResultString, Encoding.UTF8, "application/json"));
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+        }
+        catch (HttpRequestException ex)
+        {
+            _logger.LogError(ex, "Failed to save survey results {surveyResults}", surveyResults);
+            throw;
+        }
+    }
 }
