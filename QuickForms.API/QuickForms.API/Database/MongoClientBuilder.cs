@@ -2,15 +2,8 @@
 
 public class MongoClientBuilder : IMongoClientBuilder
 {
-    private readonly IOptions<DatabaseSettings> _databaseSettings;
-
-    public MongoClientBuilder(IOptions<DatabaseSettings> databaseSettings)
+    public IMongoClient Build(string connectionString)
     {
-        _databaseSettings = databaseSettings;
-    }
-
-    public IMongoClient Build()
-    {
-        return new MongoClient(_databaseSettings.Value.ConnectionString);
+        return new MongoClient(connectionString);
     }
 }

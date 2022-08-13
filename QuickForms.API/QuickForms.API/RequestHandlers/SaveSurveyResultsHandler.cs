@@ -10,24 +10,23 @@ using System.Threading.Tasks;
 namespace QuickForms.API.RequestHandlers;
 public class SaveSurveyResultsHandler : IRequestHandler<SaveSurveyResultsRequest>
 {
-    private readonly IMongoClientBuilder _mongoClientBuilder;
+    private readonly IMongoClient _mongoClient;
     private readonly IOptions<DatabaseSettings> _databaseSettings;
     private readonly IMapper _mapper;
 
     public SaveSurveyResultsHandler(
-        IMongoClientBuilder mongoClientBuilder,
+        IMongoClient mongoClient,
         IOptions<DatabaseSettings> databaseSettings,
         IMapper mapper)
     {
-        _mongoClientBuilder = mongoClientBuilder;
+        _mongoClient = mongoClient;
         _databaseSettings = databaseSettings;
         _mapper = mapper;
     }
 
     public async Task<Unit> Handle(SaveSurveyResultsRequest request, CancellationToken cancellationToken)
     {
-        var mongoClient = _mongoClientBuilder.Build();
-        var mongoDatabase = mongoClient.GetDatabase(_databaseSettings.Value.DatabaseName);
+        var mongoDatabase = _mongoClient.GetDatabase(_databaseSettings.Value.DatabaseName);
 
         var surveyResults = _mapper.Map<SurveyResults>(request.SurveyResults);
         await mongoDatabase

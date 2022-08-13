@@ -5,24 +5,23 @@ using QuickForms.API.Models;
 namespace QuickForms.API.RequestHandlers;
 public class UpdateSurveyHandler : IRequestHandler<UpdateSurveyRequest>
 {
-    private readonly IMongoClientBuilder _mongoClientBuilder;
+    private readonly IMongoClient _mongoClient;
     private readonly IOptions<DatabaseSettings> _databaseSettings;
     private readonly IMapper _mapper;
 
     public UpdateSurveyHandler(
-        IMongoClientBuilder mongoClientBuilder,
+        IMongoClient mongoClient,
         IOptions<DatabaseSettings> databaseSettings,
         IMapper mapper)
     {
-        _mongoClientBuilder = mongoClientBuilder;
+        _mongoClient = mongoClient;
         _databaseSettings = databaseSettings;
         _mapper = mapper;
     }
 
     public async Task<Unit> Handle(UpdateSurveyRequest request, CancellationToken cancellationToken)
     {
-        var mongoClient = _mongoClientBuilder.Build();
-        var mongoDatabase = mongoClient.GetDatabase(_databaseSettings.Value.DatabaseName);
+        var mongoDatabase = _mongoClient.GetDatabase(_databaseSettings.Value.DatabaseName);
 
         var survey = _mapper.Map<Survey>(request.UpdatedSurvey);
 

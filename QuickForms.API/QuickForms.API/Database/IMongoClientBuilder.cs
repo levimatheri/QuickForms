@@ -1,6 +1,11 @@
-﻿namespace QuickForms.API.Database;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace QuickForms.API.Database;
 public interface IMongoClientBuilder
 {
-    public IMongoClient Build();
+    IMongoClient Build(string connectionString);
 }

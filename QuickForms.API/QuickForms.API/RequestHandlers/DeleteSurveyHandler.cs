@@ -4,21 +4,20 @@ using QuickForms.API.Models;
 namespace QuickForms.API.RequestHandlers;
 public class DeleteSurveyHandler : IRequestHandler<DeleteSurveyRequest>
 {
-    private readonly IMongoClientBuilder _mongoClientBuilder;
+    private readonly IMongoClient _mongoClient;
     private readonly IOptions<DatabaseSettings> _databaseSettings;
 
     public DeleteSurveyHandler(
-        IMongoClientBuilder mongoClientBuilder,
+        IMongoClient mongoClient,
         IOptions<DatabaseSettings> databaseSettings)
     {
-        _mongoClientBuilder = mongoClientBuilder;
+        _mongoClient = mongoClient;
         _databaseSettings = databaseSettings;
     }
 
     public async Task<Unit> Handle(DeleteSurveyRequest request, CancellationToken cancellationToken)
     {
-        var mongoClient = _mongoClientBuilder.Build();
-        var mongoDatabase = mongoClient.GetDatabase(_databaseSettings.Value.DatabaseName);
+        var mongoDatabase = _mongoClient.GetDatabase(_databaseSettings.Value.DatabaseName);
 
         await mongoDatabase
             .GetCollection<Survey>(_databaseSettings.Value.SurveyCollectionName)
