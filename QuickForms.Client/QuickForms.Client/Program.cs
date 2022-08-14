@@ -22,6 +22,7 @@ builder.Services.AddMudServices(config =>
     config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
 });
 
+
 builder.Services.AddHttpClient(Constants.QuickFormsApi.Name, httpClient =>
 {
     httpClient.BaseAddress = new Uri("http://localhost:5122");

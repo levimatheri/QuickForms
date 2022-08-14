@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using QuickForms.Client.Models;
+using QuickForms.Client.Models.Serialization;
 using System.Text;
+using System.Text.Json;
 
 namespace QuickForms.Client.Repositories;
 
@@ -9,13 +11,17 @@ public class SurveyRepository : ISurveyRepository
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly ILogger<SurveyRepository> _logger;
 
+    private readonly static JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+    };
+
     public SurveyRepository(IHttpClientFactory httpClientFactory, ILogger<SurveyRepository> logger)
     {
         _httpClientFactory = httpClientFactory;
         _logger = logger;
     }
 
-    
     public async Task<List<Survey>> GetSurveys()
     {
         var httpClient = _httpClientFactory.CreateClient(Constants.QuickFormsApi.Name);
@@ -26,8 +32,8 @@ public class SurveyRepository : ISurveyRepository
 
             httpResponseMessage.EnsureSuccessStatusCode();
 
-            var contentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Survey>>(contentString)!;
+            using var contentStream = await httpResponseMessage.Content.ReadAsStreamAsync();
+            return (await System.Text.Json.JsonSerializer.DeserializeAsync(contentStream, SurveyJsonContext.Default.ListSurvey))!;
         }
         catch (HttpRequestException ex)
         {
@@ -46,8 +52,8 @@ public class SurveyRepository : ISurveyRepository
 
             httpResponseMessage.EnsureSuccessStatusCode();
 
-            var contentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Survey>(contentString)!;
+            using var contentStream = await httpResponseMessage.Content.ReadAsStreamAsync();
+            return (await System.Text.Json.JsonSerializer.DeserializeAsync(contentStream, SurveyJsonContext.Default.Survey))!;
         }
         catch (HttpRequestException ex)
         {
@@ -62,7 +68,7 @@ public class SurveyRepository : ISurveyRepository
 
         try
         {
-            var surveyString = JsonConvert.SerializeObject(survey);
+            var surveyString = System.Text.Json.JsonSerializer.Serialize(survey, SurveyJsonContext.Default.Survey);
             var httpResponseMessage = await httpClient.PutAsync(
                     $"/api/surveys/{survey.Id}", new StringContent(surveyString, Encoding.UTF8, "application/json"));
 
@@ -81,7 +87,7 @@ public class SurveyRepository : ISurveyRepository
 
         try
         {
-            var surveyResultString = JsonConvert.SerializeObject(surveyResults);
+            var surveyResultString = System.Text.Json.JsonSerializer.Serialize(surveyResults, SurveyResultsJsonContext.Default.SurveyResults);
             var httpResponseMessage = await httpClient.PostAsync(
                     $"/api/surveyResults/{surveyResults.SurveyId}", new StringContent(surveyResultString, Encoding.UTF8, "application/json"));
 
