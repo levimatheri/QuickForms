@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuickForms.API.RequestHandlers;
+namespace QuickForms.API.RequestHandlers.SurveyResultsRequestHandlers;
 public class SaveSurveyResultsHandler : IRequestHandler<SaveSurveyResultsRequest>
 {
     private readonly IMongoClient _mongoClient;
@@ -37,5 +37,5 @@ public class SaveSurveyResultsHandler : IRequestHandler<SaveSurveyResultsRequest
     }
 }
 
-public record SaveSurveyResultsRequest(string Id, SurveyResultsDto SurveyResults) : IRequest;
+public record SaveSurveyResultsRequest(string SurveyId, SurveyResultsDto SurveyResults) : IRequest;
 

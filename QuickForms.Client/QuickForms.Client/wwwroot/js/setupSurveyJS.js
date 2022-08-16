@@ -18,7 +18,6 @@ window.setupSurveyJS = async (dotNetHelper) => {
 
     creator.saveSurveyFunc = async (saveNo, callback) => {
         currentSurvey.Content = JSON.stringify(creator.JSON);
-        console.log(currentSurvey);
         await dotNetHelper
             .invokeMethodAsync('UpdateCurrentSurvey', currentSurvey).then(() => {
                 // success. resolve callback

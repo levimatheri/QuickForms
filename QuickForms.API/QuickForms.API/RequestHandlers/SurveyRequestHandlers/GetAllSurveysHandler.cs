@@ -2,7 +2,7 @@
 using QuickForms.API.Database;
 using QuickForms.API.Models;
 
-namespace QuickForms.API.RequestHandlers;
+namespace QuickForms.API.RequestHandlers.SurveyRequestHandlers;
 
 public class GetAllSurveysHandler : IRequestHandler<GetAllSurveysRequest, List<SurveyDto>>
 {

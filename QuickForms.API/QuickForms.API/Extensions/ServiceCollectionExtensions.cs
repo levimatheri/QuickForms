@@ -25,7 +25,6 @@ public static class ServiceCollectionExtensions
         string connectionString)
     {
         services.AddSingleton<IMongoClient>(new MongoClient(connectionString));
-
         return services;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MongoDB.Bson;
+using MongoDB.Bson.IO;
 using QuickForms.API.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,12 @@ public class SurveyResultsProfile : Profile
             .ForMember(dst => dst.SurveyResult, opt =>
             {
                 opt.MapFrom(src => BsonDocument.Parse(src.SurveyResult));
+            });
+
+        CreateMap<SurveyResults, SurveyResultsDto>()
+            .ForMember(dst => dst.SurveyResult, opt =>
+            {
+                opt.MapFrom(src => src.SurveyResult.ToJson(new JsonWriterSettings { OutputMode = JsonOutputMode.CanonicalExtendedJson }, default, default, default));
             });
     }
 }

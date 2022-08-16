@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver.Core.Servers;
 using QuickForms.API.Models;
-using QuickForms.API.RequestHandlers;
+using QuickForms.API.RequestHandlers.SurveyRequestHandlers;
 
 namespace QuickForms.API.Controllers;
 
@@ -28,7 +29,7 @@ public class SurveysController : ControllerBase
 
         if (survey is null)
         {
-            return NotFound();
+            return NotFound($"Survey id: {id} not found");
         }
 
         return survey;
@@ -48,7 +49,7 @@ public class SurveysController : ControllerBase
 
         if (survey is null)
         {
-            return NotFound();
+            return NotFound($"Survey id: {id} not found");
         }
 
         updatedSurvey.Id = survey.Id!;
@@ -66,7 +67,7 @@ public class SurveysController : ControllerBase
 
         if (survey is null)
         {
-            return NotFound();
+            return NotFound($"Survey id: {id} not found");
         }
 
         await _mediator.Send(new DeleteSurveyRequest(id));
