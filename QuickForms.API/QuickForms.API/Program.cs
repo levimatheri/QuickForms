@@ -33,6 +33,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-//docker run -d -p 27017:27017 --name test-mongo -v data:/data/db mongo:latest
-//docker exec -t e0 mongodump --archive --gzip --db QuickForms > quickforms_db.gz
-//docker exec -t e0 mongorestore --archive --gzip < wings_db.gz
+// cd /data/
+// docker run -d -p 27017:27017 --name test-mongo -v backup:/backup mongo:latest
+// docker exec -t c0c mongorestore --gzip --archive=/backup/quickforms.gz
+// docker exec -t 047 mongodump --gzip --db QuickForms --archive=/backup/quickforms.gz
